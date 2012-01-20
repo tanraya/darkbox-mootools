@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
+<head>
+	<title>Darkbox v2 for Mootools framework</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+	
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/mootools/1.4.1/mootools-yui-compressed.js"></script>
+    <script type="text/javascript" src="darkbox-mootools.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="darkbox.css" />
+	<!--[if IE]>
+	<link rel="stylesheet" type="text/css" media="screen" href="darkbox-ie.css" />
+	<![endif]-->
+
+    <style type="text/css">
+        img { border: 0; }
+    </style>
+
+    <script type="text/javascript">
+    window.addEvent('domready', function() {
+        var darkbox = new Darkbox('popups', {
+          onImageLoaded : function(darkbox) {
+            var figure = new Element('figure');
+            var image  = darkbox.getElement('img');
+
+            figure.wraps(image);  
+
+            figure.setStyle('box-shadow', '0 0 160px 10px #' + ambicolor(image, 10))
+
+            var caption = new Element('figcaption').inject(image, 'after')
+
+            new Element('span')
+              .appendText('Darkbox v2 for Mootools. Simple script for image popups.')
+              .inject(caption)
+          }
+        })
+    })
+    </script>
+</head>
+<body>
+
+<h1>Darkbox v2 for Mootools. Simple script for image popups.</h1>
+
+<p id="popups">
+    <a href="photos/15720.jpg" class="popup"><img src="photos/15720_small.jpg" /></a>
+    <a href="photos/15744.jpg" class="popup"><img src="photos/15744_small.jpg" /></a>
+    <a href="photos/15750.jpg" class="popup"><img src="photos/15750_small.jpg" /></a>
+    <a href="photos/1.jpg" class="popup"><img src="photos/1.jpg" style="width: 100px;" /></a>
+    <a href="photos/3.jpg" class="popup"><img src="photos/3.jpg" style="width: 100px;" /></a>
+    <a href="photos/4.jpg" class="popup"><img src="photos/4.jpg" style="width: 100px;" /></a>
+    <a href="photos/5.jpg" class="popup"><img src="photos/5.jpg" style="width: 100px;" /></a>
+    <a href="photos/6.jpg" class="popup"><img src="photos/6.jpg" style="width: 100px;" /></a>
+</p>
+
+
+
+<p>
+	Based on <a href="http://pepelsbey.net/pro/2009/02/darkbox-2/">original JQuery code</a> by <a href="http://pepelsbey.net/about/">Vadim Makeev</a>.
+</p>
